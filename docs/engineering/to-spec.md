@@ -1,18 +1,18 @@
 Quickstart:
 
 ```bash
-npx skills add mattpocock/skills --skill=to-spec
+npx skills add toxicgozen/matt-skills --skill=to-spec
 ```
 
 ```bash
 npx skills update to-spec
 ```
 
-[Source](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec)
+[Source](https://github.com/toxicgozen/matt-skills/tree/main/skills/engineering/to-spec)
 
 ## What it does
 
-`to-spec` turns the current conversation and your codebase understanding into a spec (you may know this document as a PRD), then publishes it to your issue tracker.
+`to-spec` turns the current conversation and your codebase understanding into a spec (you may know this document as a PRD), using the destination and shape declared by the current project.
 
 It does **not** interview you again. By the time you reach for it, the alignment work is done — `to-spec` synthesises what is already known rather than asking a fresh round of questions.
 
@@ -24,13 +24,13 @@ Reach for it once a change has been talked through and the domain language is se
 
 ## Prerequisites
 
-`to-spec` publishes into your issue tracker, so [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) must have configured the tracker and triage labels for this repo first. It applies the `ready-for-agent` label itself — no separate triage pass needed.
+When the repo has its own spec contract, `to-spec` reads that contract before writing. Without one, it returns the fallback spec in the conversation. It never creates an external issue or applies tracker labels unless you explicitly request external publication in the current task.
 
 ## What the spec includes
 
 - **Problem statement** — what is broken or missing, and why it's worth solving, in the project's own vocabulary.
 - **Solution** — the shape of the fix at a high level, before any implementation detail.
-- **User stories** — an extensive, numbered list of the concrete behaviours the change must support, each one independently checkable.
+- **User stories** — a prioritized list of the concrete behaviours the change must support, each one independently checkable and included only when it adds signal.
 - **Implementation decisions** — the choices already settled during the conversation, so they aren't relitigated later.
 - **Testing decisions** — the seams the feature will be tested at, and what "done" looks like.
 - **Out-of-scope items** — what this change deliberately does *not* cover, to keep the ticket bounded.
@@ -45,8 +45,9 @@ That matters for agentic development: a good interface gives tests something dur
 ## It's working if
 
 - It starts writing the spec instead of asking you a fresh round of questions.
-- It checks the seams with you before writing, and proposes as few as possible.
+- It checks material seam decisions with you before writing, and proposes as few as possible.
 - The spec comes back in your project's domain vocabulary, not generic boilerplate.
+- The spec lands in the project-declared destination without an implicit external write.
 
 ## Where it fits
 
