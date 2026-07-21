@@ -1,3 +1,5 @@
+Before modifying this public personal fork, read [`FORK.md`](./FORK.md) and apply its privacy and upstream-contribution boundary in addition to the upstream rules below.
+
 Skills are organized into bucket folders under `skills/`:
 
 - `engineering/` — daily code work
